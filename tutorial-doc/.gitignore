@@ -1,1 +1,8 @@
 build/
+*.aux
+main.fdb_latexmk
+*.fls
+*.log
+main.synctex(busy)
+*.pdf
+main.synctex.gz
