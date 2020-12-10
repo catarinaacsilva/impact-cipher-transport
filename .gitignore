@@ -1,1 +1,11 @@
 venv/
+build/
+luftballons.pl
+main.aux
+main.bbl
+main.blg
+main.fdb_latexmk
+main.fls
+main.log
+main.pdf
+main.synctex.gz
