@@ -16,7 +16,7 @@
 	\vspace{25pt} % Whitespace
 	\rule{\linewidth}{0.5pt}\\ % Thin top horizontal rule
 	\vspace{20pt} % Whitespace
-	{\huge Confidentiality of technologies: ZigBee and Wi-Fi}\\ % The assignment title
+	{\huge Wireless Sensor Network: overhead and cipher/decipher time}\\ % The assignment title
 	\vspace{12pt} % Whitespace
 	\rule{\linewidth}{2pt}\\ % Thick bottom horizontal rule
 	\vspace{12pt} % Whitespace
@@ -32,15 +32,57 @@
 
 \section{Introduction}
 
-\subsection{ZigBee}
+Wireless Sensor Networks (WSN) have been studied to enable different applications such as environmental surveillance, scientific observation, traffic monitoring and it can
+be developed to Smart Homes~\cite{liu2009passive, 7029932}. WSN is comprised of a large number of sensor nodes that are deployed in an unattended and remote environment 
+to measure a few physiological parameters. Typically, it consists of a large number of resource-limited sensor nodes working in a self-organizing and distributed manner.
 
-\subsection{Wi-Fi}
+Limitations in processing power, battery life, communication bandwidth and memory constrain the applicability of existing cryptography standards for small embedded 
+devices~\cite{ganesan2003analyzing}.
 
+The algorithms are in table~\ref{table:t00} have been suggested as a good algorithm for sensor networks. 
+
+\begin{table}[h]
+	\centering
+	\caption{Encryption Schemes and Parameters}
+	\label{table:t00}
+	\begin{tabular}{llll}
+		\toprule
+		\textbf{Algorithm} & \textbf{Type} & \textbf{Key/Hash} & \textbf{Block} \\
+		\midrule
+		RC4 & stream & 128 bits & 8 bits \\
+		IDEA & block & 128 bits & 64 bits \\
+		RC5 & block & 64 bits & 64 bits \\
+		MD5 & 1-way hash & 128 bits & 512 bits \\
+		SHA1 & 1-way hash & 128 bits & 512 bits \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\textbf{RC4} is a stream cipher symmetric key algorithm. This algorithm is quite simple and operations involve the addition of 8 bit elements or swapping variables in a 256-byte 
+state table. RC4 supports variable length keys.
+
+\textbf{IDEA} (International Data Encryption Algorithm) is a symmetric-key block cipher that operates on 64 bit plaintext blocks. The key is 128 bits long with the same algorithm 
+used for both encryption and decryption. The algorithm primarily includes operations from three algebraic groups: XOR, addition modulo 216, multiplication modulo 216+1.
+
+\textbf{RC5} is a fast symmetric block cipher with a variety of parameters: block size, key size and number of rounds. We currently focus on a RC5 implementation with a 64-bit data 
+block and 64-bit key. It uses the XOR, addition and rotation operations.
+
+\textbf{MD5} is a one-way hash function that processes the input text in 512 bit blocks to generate a 128-bit hash value. The mathematical operations that are involved in this 
+algorithm are: XOR, AND, OR, NOT and rotations. The algorithm also pads plaintext to 512 blocks with the last 64 bits of the last block indicating the length of the
+message.
+
+\textbf{SHA-1} is also a one-way hash function that produces a 160-bit output when any message of any length less than 264 bits is input. The operations are similar to MD5 and 
+constitute XOR, AND, OR, NOT and rotations. 
+
+%Apenas para guardar: https://www.paessler.com/network-analyzer-diagnostics
 
 \section{Task 1}
 
 \section{Task 2}
 
 \section{Conclusion}
+
+\bibliographystyle{unsrt}
+\bibliography{refs}{}
 
 \end{document}
