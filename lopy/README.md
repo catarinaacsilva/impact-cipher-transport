@@ -11,11 +11,6 @@
 - Atom
 - Pymakr
 
-## Installation
-
-1. Install Atom: `sudo snap install atom --classic`
-
-
 ## Lopy
 
 1. Update firmware: 
