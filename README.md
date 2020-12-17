@@ -1,4 +1,4 @@
-# Impact of cipher algorithms and different protocols on WSN
+# Impact of different algorithms and protocols on WSN
 
 Study the impact of different cipher algorithms and different transport protocols on WSN.
 The main idea is to obtain overhead values and duration of the process since the beginning when the data is generated until the end when the data is consumed.
