@@ -1,3 +1,11 @@
+# coding: utf-8
+​
+
+__author__ = 'Catarina Silva'
+__version__ = '0.1'
+__email__ = 'c.alexandracorreia@av.it.pt'
+__status__ = 'Development'
+
 import logging 
 
 from flask import Flask, request, jsonify
