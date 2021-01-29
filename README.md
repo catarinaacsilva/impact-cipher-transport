@@ -13,6 +13,7 @@ The main idea is to obtain overhead values and duration of the process since the
 - Lopy
 - ESP32
 - ESP8266
+- BME280
 
 ## Install Arduino on Ubuntu 20.04
 
