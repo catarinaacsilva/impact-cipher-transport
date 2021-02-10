@@ -34,11 +34,16 @@
   #define SESSION_KEY_SIZE 16
 #endif
 
-
 // Links to communicate with the REST server
 #define KEY_EXCHANGE_POST "http://192.168.1.117:5000/putkey/sensor"
 #define KEY_EXCHANGE_GET "http://192.168.1.117:5000/getkey/client"
 #define DATA_POST "http://192.168.1.117:5000/putdata/client"
+
+// NTP Definitions
+//#define NTP_SERVER "time.ua.pt"
+#define NTP_SERVER "1.pt.pool.ntp.org"
+// Update NTP every 10 min (600 seconds)
+#define NTP_INTERVAL 600
 
 // JSON Message buffer size
 #define LENGTH 128

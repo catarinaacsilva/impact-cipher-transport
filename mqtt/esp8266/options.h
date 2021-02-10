@@ -10,13 +10,13 @@
 //#define DH_521
 
 // Cipher Algorithm (AES; ChaCha)
-#define CA_AES
-//#define CA_CHACHA
+//#define CA_AES
+#define CA_CHACHA
 
 // Cipher algorithm key size (128; 192; 256)
 //#define KS_128
-#define KS_192
-//#define KS_256
+//#define KS_192
+#define KS_256
 
 #ifdef DH_25519
   #define KEY_SIZE_PUBLIC 32
@@ -40,6 +40,12 @@
 #define KEY_EXCHANGE_GET  "http://192.168.1.117:5000/getkey/client"
 #define DATA_POST         "http://192.168.1.117:5000/putdata/client"
 #define MQTT_SERVER       "192.168.1.117"
+
+// NTP Definitions
+//#define NTP_SERVER "time.ua.pt"
+#define NTP_SERVER "1.pt.pool.ntp.org"
+// Update NTP every 10 min (600 seconds)
+#define NTP_INTERVAL 600
 
 // JSON Message buffer size
 #define LENGTH 128

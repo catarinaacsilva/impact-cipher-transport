@@ -179,6 +179,11 @@ void setup() {
   setInterval(60);
   waitForSync();
 
+  // Define the NTP server
+  setServer(NTP_SERVER);
+  setInterval(NTP_INTERVAL);
+  waitForSync();
+
   Portugal.setLocation("Europe/Lisbon");
   Serial.println("Portugal: " + Portugal.dateTime());
 

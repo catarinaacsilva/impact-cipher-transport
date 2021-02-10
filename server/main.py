@@ -24,7 +24,7 @@ data = {}
 # Create a Flask HTTP server
 app = Flask(__name__)
 
-# explicar como a api funciona
+
 @app.route('/')
 def hello():
     return 'Hello World!'

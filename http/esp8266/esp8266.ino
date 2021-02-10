@@ -178,7 +178,9 @@ void setup() {
   Serial.println(WiFi.localIP());
   Serial.println();
 
-  setInterval(60);
+  // Define the NTP server
+  setServer(NTP_SERVER);
+  setInterval(NTP_INTERVAL);
   waitForSync();
 
   Portugal.setLocation("Europe/Lisbon");
