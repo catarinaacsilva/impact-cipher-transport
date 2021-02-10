@@ -6,8 +6,8 @@
 #define PASSWORD "8006002030"
 
 // Diffie Hellman key exchange (curve25519; p521)
-//#define DH_25519
-#define DH_521
+#define DH_25519
+//#define DH_521
 
 // Cipher Algorithm (AES; ChaCha)
 #define CA_AES
@@ -35,9 +35,9 @@
 #endif
 
 // Links to communicate with the REST server
-#define KEY_EXCHANGE_POST "http://192.168.1.117:5000/putkey/sensor"
-#define KEY_EXCHANGE_GET "http://192.168.1.117:5000/getkey/client"
-#define DATA_POST "http://192.168.1.117:5000/putdata/client"
+#define KEY_EXCHANGE_POST "http://192.168.1.128:5000/putkey/sensor"
+#define KEY_EXCHANGE_GET "http://192.168.1.128:5000/getkey/client"
+#define DATA_POST "http://192.168.1.128:5000/putdata/client"
 
 // NTP Definitions
 //#define NTP_SERVER "time.ua.pt"

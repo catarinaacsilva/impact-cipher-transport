@@ -10,13 +10,13 @@
 //#define DH_521
 
 // Cipher Algorithm (AES; ChaCha)
-//#define CA_AES
-#define CA_CHACHA
+#define CA_AES
+//#define CA_CHACHA
 
 // Cipher algorithm key size (128; 192; 256)
-//#define KS_128
+#define KS_128
 //#define KS_192
-#define KS_256
+//#define KS_256
 
 #ifdef DH_25519
   #define KEY_SIZE_PUBLIC 32
@@ -34,12 +34,11 @@
   #define SESSION_KEY_SIZE 16
 #endif
 
-
 // Links to communicate with the REST server
-#define KEY_EXCHANGE_POST "http://192.168.1.117:5000/putkey/sensor"
-#define KEY_EXCHANGE_GET  "http://192.168.1.117:5000/getkey/client"
-#define DATA_POST         "http://192.168.1.117:5000/putdata/client"
-#define MQTT_SERVER       "192.168.1.117"
+#define KEY_EXCHANGE_POST "http://192.168.1.128:5000/putkey/sensor"
+#define KEY_EXCHANGE_GET  "http://192.168.1.128:5000/getkey/client"
+#define DATA_POST         "http://192.168.1.128:5000/putdata/client"
+#define MQTT_SERVER       "192.168.1.128"
 
 // NTP Definitions
 //#define NTP_SERVER "time.ua.pt"
