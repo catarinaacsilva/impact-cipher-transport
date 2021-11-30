@@ -1,3 +1,5 @@
-paho-mqtt>=1.5.1
-requests>=2.25.1
-cryptography>=3.3.1
+requests>=2.26.0
+paho-mqtt>=1.6.1
+cryptography>=36.0.0
+adafruit-circuitpython-bme280>=2.6.7
+adafruit-circuitpython-bmp280>=3.2.9

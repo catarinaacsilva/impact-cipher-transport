@@ -34,6 +34,12 @@ from cryptography.hazmat.primitives import serialization
 from enum import Enum
 
 
+# BME280 and BMP280
+import board
+import adafruit_bmp280
+from adafruit_bme280 import basic as adafruit_bme280
+
+
 # Enum that defines the DF key exchange algorithm
 class DH(Enum) :
     curve25519 = 'curve25519'
@@ -57,6 +63,15 @@ class KS(Enum):
     s128 = '128'
     s192 = '192'
     s256 = '256'
+
+    def __str__(self):
+        return self.value
+
+
+# Enum for the sensor type
+class Sensor(enum.Enum):
+    bmp280='bmp280'
+    bme280='bme280'
 
     def __str__(self):
         return self.value
@@ -156,11 +171,23 @@ def main(args):
     client = mqtt.Client('sensor')
     client.connect(args.b, args.p)
 
+    if args.s is Sensor.bmp280:
+        i2c = board.I2C()  # uses board.SCL and board.SDA
+        sensor = adafruit_bmp280.Adafruit_BMP280_I2C(i2c)
+        sensor.sea_level_pressure = 1013.25
+    else:
+        i2c = board.I2C()  # uses board.SCL and board.SDA
+        sensor = adafruit_bme280.Adafruit_BME280_I2C(i2c)
+        sensor.sea_level_pressure = 1013.25
+
     while not done:
         # read values from sensor
-        t = 25.0
-        h = 0.60
-        p = 1015.0
+        t = sensor.temperature
+        h = sensor.humidity
+        if args.s in Sensor.bmp280:
+            p = 0.0
+        else:
+            p = sensor.pressure
 
         data = json.dumps({'temperature': t, 'humidity': h, 'pressure': p})
         
@@ -189,5 +216,6 @@ if __name__ == '__main__':
     parser.add_argument('-d', type=DH, help='Diffie–Hellman key exchange', choices=list(DH), default='curve25519')
     parser.add_argument('-k', type=KS, help='Symmetric key size', choices=list(KS), default='128')
     parser.add_argument('-c', type=CA, help='Cipher algorithm', choices=list(CA),  default='aes')
+    parser.add_argument('-s', type=Sensor, help='Sensor type',  choices=list(Sensor), default='bmp280')
     args = parser.parse_args()
     main(args)
