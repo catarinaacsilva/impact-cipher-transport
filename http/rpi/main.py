@@ -66,7 +66,7 @@ class KS(Enum):
 
 
 # Enum for the sensor type
-class Sensor(enum.Enum):
+class Sensor(Enum):
     bmp280='bmp280'
     bme280='bme280'
 
