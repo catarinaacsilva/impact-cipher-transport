@@ -216,6 +216,6 @@ if __name__ == '__main__':
     parser.add_argument('-d', type=DH, help='Diffie–Hellman key exchange', choices=list(DH), default='curve25519')
     parser.add_argument('-k', type=KS, help='Symmetric key size', choices=list(KS), default='128')
     parser.add_argument('-c', type=CA, help='Cipher algorithm', choices=list(CA),  default='aes')
-    parser.add_argument('-s', type=ST, help='Sensor type',  choices=list(Sensor), default='bmp280')
+    parser.add_argument('-s', type=ST, help='Sensor type',  choices=list(ST), default='bmp280')
     args = parser.parse_args()
     main(args)
