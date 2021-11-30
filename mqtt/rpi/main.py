@@ -183,11 +183,11 @@ def main(args):
     while not done:
         # read values from sensor
         t = sensor.temperature
-        h = sensor.humidity
         if args.s in Sensor.bmp280:
-            p = 0.0
+            h = 0.0
         else:
-            p = sensor.pressure
+            h = sensor.humidity    
+        p = sensor.pressure
 
         data = json.dumps({'temperature': t, 'humidity': h, 'pressure': p})
         

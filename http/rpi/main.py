@@ -181,11 +181,11 @@ def main(args):
         #data = bme280.sample(bus, address, calibration_params)
         
         t = sensor.temperature
-        h = sensor.humidity
         if args.s in Sensor.bmp280:
-            p = 0.0
+            h = 0.0
         else:
-            p = sensor.pressure
+            h = sensor.humidity    
+        p = sensor.pressure
 
         data = json.dumps({'temperature': t, 'humidity': h, 'pressure': p})
         session_key, key_delay = init_session(args)
