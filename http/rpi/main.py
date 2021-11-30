@@ -66,7 +66,7 @@ class KS(Enum):
 
 
 # Enum for the sensor type
-class Sensor(Enum):
+class ST(Enum):
     bmp280='bmp280'
     bme280='bme280'
 
@@ -167,7 +167,7 @@ def main(args):
     #bus = smbus2.SMBus(port)
     #calibration_params = bme280.load_calibration_params(bus, address)
 
-    if args.s is Sensor.bmp280:
+    if args.s is ST.bmp280:
         i2c = board.I2C()  # uses board.SCL and board.SDA
         sensor = adafruit_bmp280.Adafruit_BMP280_I2C(i2c)
         sensor.sea_level_pressure = 1013.25
@@ -181,7 +181,7 @@ def main(args):
         #data = bme280.sample(bus, address, calibration_params)
         
         t = sensor.temperature
-        if args.s in Sensor.bmp280:
+        if args.s is ST.bmp280:
             h = 0.0
         else:
             h = sensor.humidity    
@@ -216,6 +216,6 @@ if __name__ == '__main__':
     parser.add_argument('-d', type=DH, help='Diffie–Hellman key exchange', choices=list(DH), default='curve25519')
     parser.add_argument('-k', type=KS, help='Symmetric key size', choices=list(KS), default='128')
     parser.add_argument('-c', type=CA, help='Cipher algorithm', choices=list(CA),  default='aes')
-    parser.add_argument('-s', type=Sensor, help='Sensor type',  choices=list(Sensor), default='bmp280')
+    parser.add_argument('-s', type=ST, help='Sensor type',  choices=list(Sensor), default='bmp280')
     args = parser.parse_args()
     main(args)
